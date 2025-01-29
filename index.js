@@ -317,3 +317,299 @@
 
 // --------------------------------------------------------------------------------
 
+// ------------------------------conditions-n-loops-tasks.js--------------------------
+
+// #1
+// function showRezult(value) {
+//   if (value % 3 === 0 && value % 5 === 0) return "FizzBuzz";
+//   else if (value % 3 === 0) return "Fizz";
+//   else if (value % 5 === 0) return "Buzz";
+//   else return value;
+// }
+// console.log(showRezult(21));
+
+// #2
+// function showRezult(value) {
+//     if(value===1){
+//         return 1
+//     }
+//     return value*showRezult(value-1)
+//   }
+//   console.log(showRezult(5));
+
+// #3
+// function showRezult(start,end){
+//     if(start===end){
+//         return start;
+//     }
+//     return start+showRezult(start+1,end)
+// }
+// console.log(showRezult(-1,1))
+
+// #4
+// function showRezult(a, b, c) {
+//   if (a + b < c || a + c < b || b + c < a) {
+//     return false;
+//   } else {
+//     return true;
+//   }
+// }
+// console.log(showRezult(10, 10, 10));
+
+// #5
+// function showRezult(objOracle, objPoint) {
+//     let radius=objOracle.radius;
+//     let x=objOracle.center.x;
+//     let y=objOracle.center.y;
+//     let x0=objPoint.x;
+//     let y0=objPoint.y;
+//     const distance = Math.sqrt(Math.pow(x - x0, 2) + Math.pow(y - y0, 2));
+//     console.log(distance)
+//     if(distance<=radius){
+//         return true;
+//     }else{
+//         return false;
+//     }
+// }
+// console.log(showRezult({ center: { x:0, y:0 }, radius:10 },  { x:0, y:0 }));
+
+// #6
+// function showRezult(str) {
+//   let newStr = str;
+//   for (let i = 0; i < str.length; i++) {
+//     let noRep='';
+//     let count = 0;
+//     for (let j = 0; j < newStr.length; j++) {
+//       if (str[i] === str[j]) {
+//         count++;
+//         noRep=str[i];
+//       }
+//     }
+//     if(count===1){
+//         return noRep;
+//     }
+//   }
+//   return null;
+// }
+// console.log(showRezult("abracadabra"));
+
+// #7
+// function showRezult(a, b, isStartIncluded, isEndIncluded) {
+//     if(a>b){
+//         let per =b;
+//         b=a;
+//         a=per
+//     }
+//     const start = isStartIncluded ? '[' : '(';
+//     const end = isEndIncluded ? ']' : ')';
+//     return `${start}${a},${b}${end}`
+// }
+// console.log(showRezult(5, 3, true, true));
+
+// #8
+// function showRezult(str) {
+//     return str.split('').reverse().join('')
+// }
+// console.log(showRezult('The quick brown fox jumps over the lazy dog'));
+
+// #9
+// function showRezult(num) {
+//     let str=String(num);
+//     let newStr=str.split('').reverse().join('');
+//     return (+newStr);
+// }
+// console.log(showRezult(1234567));
+// более правильное решение
+// function showRezult(num) {
+//     let reversed = 0;
+
+//     while (num > 0) {
+//         let digit = num % 10; // Получаем последнюю цифру числа
+//         reversed = reversed * 10 + digit; // Добавляем цифру к перевернутому числу
+//         num = Math.floor(num / 10); // Убираем последнюю цифру
+//     }
+
+//     return reversed;
+// }
+
+// console.log(showRezult(1234567)); // 7654321
+
+// #10
+// function showRezult(numb){
+//     let str=String(numb);
+//     let arr=str.split('').reverse();
+//     let newArr=arr.map((value)=>{
+//         return +value;
+//     })
+//     console.log(newArr)
+//     let multiArr=newArr.map((value,index)=>{
+//         if(index%2!==0){
+//             let newVal=value*2;
+//             if(newVal>9){
+//                 return newVal-9;
+//             }else{
+//                 return newVal
+//             }
+//         }else{
+//             return value
+//         }
+//     })
+//     let sum=0;
+//     multiArr.forEach((value)=>{
+//         sum+=value;
+//     })
+//     return sum%10===0;
+// }
+// console.log(showRezult( 4916123456789012))
+
+// #11 Небольшая рекурсия
+// function showRezult(numb) {
+// let arr=String(numb).split('').map(Number);
+// let sum=0;
+// arr.forEach((value)=>{
+//     sum+=value;
+// })
+// if(sum>9){
+//     return showRezult(sum);
+// }else{
+//     return sum;
+// }
+// }
+// console.log(showRezult(12345));
+
+// #12
+// function showRezult(str) {
+//     const closeDictionary={
+//         "[": "]",
+//         "(": ")",
+//         "{": "}",
+//         "<": ">",
+//     }
+//   const openDictionary = {
+//     "[": "[",
+//     "(": "(",
+//     "{": "{",
+//     "<": "<",
+//   };
+//   let stack = [];
+//   for (let i = 0; i < str.length; i++) {
+//     if (str[i] === openDictionary[str[i]]) {
+//       stack.push(str[i]);
+//     } else{
+//         if(str[i]===closeDictionary[stack[stack.length-1]]){
+//             stack.pop();
+//         }
+//     }
+//   }
+//   return stack.length===0;
+// }
+// console.log(showRezult("{[(<{[]}>)]}"));
+
+// #13
+// function showRezult(num,n) {
+//     // .toString() - функция, с помощью которой можно переводить числа в разные системы счисления
+//     return num.toString(n)
+// }
+// console.log(showRezult(365,10));
+
+// #14 Умножение матриц
+// function showRezult(mat1, mat2) {
+//   if (mat1[0].length === mat2.length) {
+//     let rez = [];
+//     for (let i = 0; i < mat1.length; i++) {
+//       rez[i] = [];
+//       for (let j = 0; j < mat2[0].length; j++) {
+//         rez[i][j] = 0;
+//       }
+//     }
+//     for (let i = 0; i < mat1.length; i++) {
+//       for (let j = 0; j < mat2[0].length; j++) {
+//         for (let k = 0; k < mat1[0].length; k++) { // k идет по элементам строки и столбца
+//           rez[i][j] += mat1[i][k] * mat2[k][j];
+//         }
+//       }
+//     }
+//     return rez;
+//   }else{
+//     return 'Errow'
+//   }
+// }
+
+// console.log(
+//   showRezult(
+//     [
+//       [1, 0, 0],
+//       [0, 1, 0],
+//       [0, 0, 1],
+//     ],
+//     [
+//       [1, 2, 3],
+//       [4, 5, 6],
+//       [7, 8, 9],
+//     ]
+//   )
+// );
+
+// #15 Пересекаются ли прямоугольники!
+// function showRezult(obj1, obj2) {
+//   let x1MAX = obj1.left + obj1.width;
+//   let x1MIN = obj1.left;
+//   let y1MAX = obj1.top + obj1.height;
+//   let y1MIN = obj1.top;
+//   let x2MAX = obj2.left + obj2.width;
+//   let x2MIN = obj2.left;
+//   let y2MAX = obj2.top + obj2.height;
+//   let y2MIN = obj2.top;
+
+//   if (x1MAX < x2MIN || x2MAX < x1MIN || y1MAX < y2MIN || y2MAX < y1MIN) {
+//     return "не пересекаются";
+//   } else {
+//     return "пересекаются";
+//   }
+// }
+// console.log(showRezult({ top: 0, left: 0, width: 10, height: 10 }, { top: 20, left: 20, width: 20, height: 20 }));
+
+// #16
+// function showRezult(matrix) {
+//   // проверка строк
+//   for (let i = 0; i < matrix.length; i++) {
+//     let count = 0;
+//     let per = matrix[i][0];
+//     for (let j = 0; j < matrix[0].length; j++) {
+//       if (matrix[i][j] === per) {
+//         count++;
+//       }
+//       if (count === 3) {
+//         return per;
+//       }
+//     }
+//   }
+//   // проверка столбцов
+//   for (let i = 0; i < matrix.length; i++) {
+//     let count = 0;
+//     let per = matrix[0][i];
+//     for (let j = 0; j < matrix[0].length; j++) {
+//       if (matrix[j][i] === per) {
+//         count++;
+//       }
+//       if (count === 3) {
+//         return per;
+//       }
+//     }
+//   }
+
+//   let mid=matrix[1][1];
+//   if(mid===matrix[0][0] && mid===matrix[2][2]){
+//     return mid;
+//   }
+//   if(mid===matrix[0][2] && mid===matrix[2][0]){
+//     return mid;
+//   }
+// }
+// console.log(
+//   showRezult([
+//     [, , ],
+//     [, , ],
+//     [, , ],
+//   ])
+// );
